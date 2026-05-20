@@ -1,50 +1,29 @@
-# Welcome to your Expo app 👋
+# Pokedex (Pokemons Info App)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple React Native + Expo app that fetches Pokemon data from the public PokeAPI and displays basic details (name, image, index, types). Each Pokemon links to a details screen.
 
-## Get started
+Key features
+- Fetches a list of Pokemons (default limit: 12) from https://pokeapi.co
+- Fetches detailed data per Pokemon (sprite image, game index, types)
+- Color-coded cards by primary Pokemon type
+- Tap a Pokemon to open its details screen via Expo Router
 
-1. Install dependencies
+Project structure (relevant)
+- app/index.tsx — main screen that lists Pokemons and fetches data
 
-   ```bash
-   npm install
-   ```
+How it works
+- On mount the app calls the PokeAPI endpoint to get a list of Pokemon entries.
+- For each entry the app fetches details (sprites, game_indices, types) and stores them in state.
+- The UI maps over the fetched list and renders a card with image, name and index. Cards are colored by the Pokemon's first type.
 
-2. Start the app
+Running locally
+1. Install dependencies: `npm install` or `yarn`
+2. Start Expo: `npx expo start` or `expo start`
 
-   ```bash
-   npx expo start
-   ```
+Notes
+- Uses the public PokeAPI (no auth). Be mindful of rate limits for large requests.
+- The code app/index.tsx contains simple inline styles and TypeScript interfaces for basic typing.
 
-In the output, you'll find options to open the app in a
+License
+- MIT
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
